@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -12,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.Controller.BibliothequeController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="670.0">
          <children>
@@ -23,16 +21,7 @@
                      <children>
                         <ScrollPane prefHeight="550.0" prefWidth="92.0">
                            <content>
-                              <TableView fx:id="tabLivre" prefHeight="500.0" prefWidth="430.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="Titre" />
-                                    <TableColumn prefWidth="75.0" text="Auteur" />
-                                    <TableColumn prefWidth="75.0" text="Résumé" />
-                                    <TableColumn prefWidth="75.0" text="Colonne" />
-                                    <TableColumn prefWidth="75.0" text="Rangée" />
-                                    <TableColumn prefWidth="75.0" text="Parution" />
-                                 </columns>
-                              </TableView>
+                              <TableView fx:id="tabLivre" prefHeight="500.0" prefWidth="430.0" />
                            </content>
                         </ScrollPane>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -51,7 +40,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="boutonValider" prefHeight="550.0" prefWidth="236.0">
+                  <VBox prefHeight="550.0" prefWidth="236.0">
                      <children>
                         <HBox prefHeight="60.0" prefWidth="200.0">
                            <children>
@@ -151,7 +140,7 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <Button mnemonicParsing="false" text="Valider">
+                        <Button fx:id="boutonValider" mnemonicParsing="false" text="Valider">
                            <VBox.margin>
                               <Insets left="60.0" top="20.0" />
                            </VBox.margin>

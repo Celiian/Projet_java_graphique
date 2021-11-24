@@ -1,6 +1,6 @@
 package com.example.demo2;
 
-public class livre {
+public class Livre {
 
     private String Titre;
     private String Auteur;
@@ -9,11 +9,11 @@ public class livre {
     private int range;
     private int parution;
 
-    public livre(String titre, String auteur, String resume, int colonne, int range, int parution) {
-        Titre = titre;
-        Auteur = auteur;
-        Resume = resume;
-        Colonne = colonne;
+    public Livre(String titre, String auteur, String resume, int colonne, int range, int parution) {
+        this.Titre = titre;
+        this.Auteur = auteur;
+        this.Resume = resume;
+        this.Colonne = colonne;
         this.range = range;
         this.parution = parution;
     }
@@ -64,5 +64,17 @@ public class livre {
 
     public void setParution(int parution) {
         this.parution = parution;
+    }
+
+    @Override
+    public String toString() {
+        return "Livre{" +
+                "Titre='" + Titre + '\'' +
+                ", Auteur='" + Auteur + '\'' +
+                ", Resume='" + Resume + '\'' +
+                ", Colonne=" + Colonne +
+                ", range=" + range +
+                ", parution=" + parution +
+                '}';
     }
 }
