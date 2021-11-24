@@ -8,14 +8,16 @@ public class Livre {
     private int Colonne;
     private int range;
     private int parution;
+    private int index;
 
-    public Livre(String titre, String auteur, String resume, int colonne, int range, int parution) {
+    public Livre(String titre, String auteur, String resume, int colonne, int range, int parution, int index) {
         this.Titre = titre;
         this.Auteur = auteur;
         this.Resume = resume;
         this.Colonne = colonne;
         this.range = range;
         this.parution = parution;
+        this.index = index;
     }
 
     public String getTitre() {
@@ -64,6 +66,14 @@ public class Livre {
 
     public void setParution(int parution) {
         this.parution = parution;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     @Override
