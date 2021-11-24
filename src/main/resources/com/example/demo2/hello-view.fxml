@@ -37,7 +37,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -102,11 +101,11 @@
             </Label>
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
-               <content>
-                  <fx:include fx:id="test2" source="form1.fxml" />
-               </content>
-        </ScrollPane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <fx:include fx:id="test2" source="Bibliotheque.fxml" />
+               </children>
+            </Pane>
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
