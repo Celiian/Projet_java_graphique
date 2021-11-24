@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -15,7 +17,7 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="670.0">
          <children>
-            <HBox prefHeight="550.0" prefWidth="670.0">
+            <HBox prefHeight="530.0" prefWidth="663.0">
                <children>
                   <VBox prefHeight="550.0" prefWidth="435.0">
                      <children>
@@ -40,7 +42,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="550.0" prefWidth="236.0">
+                  <VBox prefHeight="524.0" prefWidth="228.0">
                      <children>
                         <VBox fx:id="boxForm" prefHeight="437.0" prefWidth="236.0" visible="false">
                            <children>
@@ -142,12 +144,34 @@
                                     <Insets />
                                  </VBox.margin>
                               </HBox>
+                              <HBox prefHeight="60.0" prefWidth="200.0">
+                                 <children>
+                                    <Label prefWidth="80.0" text="Url (image) :">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="urlImg" prefWidth="140.0">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </HBox>
                            </children>
                         </VBox>
-                        <Pane prefHeight="120.0" prefWidth="236.0">
+                        <Pane fx:id="paneBoutons" prefHeight="94.0" prefWidth="216.0">
                            <children>
-                              <Button fx:id="boutonModifier" layoutX="87.0" layoutY="26.0" mnemonicParsing="false" text="Modifier" visible="false" />
-                              <Button fx:id="boutonValider" layoutX="87.0" layoutY="26.0" mnemonicParsing="false" text="Valider" visible="false" />
+                              <Button fx:id="boutonModifier" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Modifier" visible="false" />
+                              <Button fx:id="boutonValider" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Valider" visible="false" />
+                              <ImageView fx:id="img" fitHeight="100.0" fitWidth="140.0" layoutX="91.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://www.crushpixel.com/big-static18/preview4/hj-script-logo-design-vector-2988652.jpghttps://www.crushpixel.com/big-static18/preview4/hj-script-logo-design-vector-2988652.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </Pane>
                      </children>

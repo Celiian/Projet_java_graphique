@@ -5,8 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -41,7 +46,7 @@ public class BibliothequeController implements Initializable {
     private Button boutonAjouter;
 
     @FXML
-    private Button boutonSupprimer;
+    private Button boutonRetirer;
 
     @FXML
     private Button boutonModifier;
@@ -49,10 +54,19 @@ public class BibliothequeController implements Initializable {
     @FXML
     private VBox boxForm;
 
+    @FXML
+    private ImageView img;
+
+    @FXML
+    private Pane paneBoutons;
+
+    @FXML
+    private TextField urlImg;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        //Crée les colonnes dans le tableau
         TableColumn auteurColonne = new TableColumn("auteur");
         auteurColonne.setCellValueFactory(new PropertyValueFactory<>("auteur"));
 
@@ -71,11 +85,15 @@ public class BibliothequeController implements Initializable {
         TableColumn resumeColonne = new TableColumn("resume");
         resumeColonne.setCellValueFactory(new PropertyValueFactory<>("resume"));
 
+        TableColumn urlColonne = new TableColumn("url");
+        resumeColonne.setCellValueFactory(new PropertyValueFactory<>("resume"));
+
+        //Ajoute les colonnes au tableau
         tabLivre.getColumns().addAll(titreColonne, auteurColonne, resumeColonne, colonneColonne, rangeeColonne, parutionColonne);
 
 
 
-
+        //Permet de créer un livre et de l'ajouter dans le tableau après avoir correctement rempli les champs
         boutonValider.setOnMouseClicked(action -> {
             String titre = champTitre.getText();
             String auteur = champAuteur.getText();
@@ -83,12 +101,14 @@ public class BibliothequeController implements Initializable {
             int range = Integer.parseInt(champRange.getText());
             int colonne = Integer.parseInt(champColonne.getText());
             String resume = champResume.getText();
-            Livre livre = new Livre(titre, auteur, resume, colonne, range, parution, (tabLivre.getItems().size()+1));
+            String urlImage =  urlImg.getText();
+            Livre livre = new Livre(titre, auteur, resume, colonne, range, parution, (tabLivre.getItems().size()+1), urlImage);
             tabLivre.getItems().add(livre);
             boxForm.setVisible(false);
             boutonValider.setVisible(false);
         });
 
+        //Affiche les info du livre selectionné et le bouton de modification
         tabLivre.setOnMouseClicked(action -> {
             try {
                 int index = tabLivre.getSelectionModel().getSelectedIndex();
@@ -106,12 +126,14 @@ public class BibliothequeController implements Initializable {
             }
         });
 
+        //Affiche le formulaire de création de livre
         boutonAjouter.setOnMouseClicked(action -> {
             boxForm.setVisible(true);
             boutonValider.setVisible(true);
             boutonModifier.setVisible(false);
         });
 
+        //Permet de modifier un element d'un livre et le range a sa place (en utilisant un algorothme de tri basé sur l'index du livre (renseigné lors de sa création))
         boutonModifier.setOnMouseClicked(action -> {
             String titre = champTitre.getText();
             String auteur = champAuteur.getText();
@@ -140,7 +162,6 @@ public class BibliothequeController implements Initializable {
                         list.set(j, livre);
                     }
             }
-
             tabLivre.getItems().clear();
             for (int i = 0; i < list.size(); i ++) {
                 tabLivre.getItems().add(list.get(i));
@@ -148,6 +169,33 @@ public class BibliothequeController implements Initializable {
             boutonModifier.setVisible(false);
             boxForm.setVisible(false);
         });
+        //Permet de retirer un livre du tableau et retrie les livres (en leur réatribuant le bon index si nécessaire)
+        boutonRetirer.setOnMouseClicked(action -> {
+            int index = tabLivre.getSelectionModel().getSelectedIndex();
+            Livre actualLivre = tabLivre.getItems().get(index);
+            tabLivre.getItems().remove(actualLivre);
+
+            ArrayList<Livre> list = new ArrayList<Livre>();
+            int newIndex = 0;
+            for (int i = 0; i < tabLivre.getItems().size(); i ++){
+                list.add(tabLivre.getItems().get(i));
+                tabLivre.getItems().get(i).setIndex(i);
+            }
+            tabLivre.getItems().clear();
+            for (int i = 0; i < list.size(); i ++) {
+                tabLivre.getItems().add(list.get(i));
+            }
+        });
+
+        //Permet quand on colle un lien d'image d'afficher l'image
+        urlImg.setOnKeyReleased(action -> {
+            String urlImage =  urlImg.getText();
+            Image imageUrl = new Image(urlImage);
+            img.setImage(imageUrl);
+        });
+
+
+
 
 
     }

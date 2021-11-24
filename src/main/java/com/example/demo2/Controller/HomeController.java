@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable{
+public class HomeController implements Initializable{
 
 
     @Override

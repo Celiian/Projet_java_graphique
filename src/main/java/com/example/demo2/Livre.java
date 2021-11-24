@@ -9,8 +9,9 @@ public class Livre {
     private int range;
     private int parution;
     private int index;
+    private String url;
 
-    public Livre(String titre, String auteur, String resume, int colonne, int range, int parution, int index) {
+    public Livre(String titre, String auteur, String resume, int colonne, int range, int parution, int index, String url) {
         this.Titre = titre;
         this.Auteur = auteur;
         this.Resume = resume;
@@ -18,6 +19,7 @@ public class Livre {
         this.range = range;
         this.parution = parution;
         this.index = index;
+        this.url = url;
     }
 
     public String getTitre() {
