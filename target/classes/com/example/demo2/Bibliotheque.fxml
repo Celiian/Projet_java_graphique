@@ -23,7 +23,7 @@
                      <children>
                         <ScrollPane prefHeight="550.0" prefWidth="92.0">
                            <content>
-                              <TableView fx:id="tabLivre" prefHeight="500.0" prefWidth="430.0">
+                              <TableView prefHeight="500.0" prefWidth="430.0">
                                  <columns>
                                     <TableColumn prefWidth="75.0" text="Titre" />
                                     <TableColumn prefWidth="75.0" text="Auteur" />
