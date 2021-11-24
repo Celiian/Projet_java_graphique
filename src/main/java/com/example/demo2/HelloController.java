@@ -44,7 +44,12 @@ public class HelloController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
        global.getChildren().removeAll(test);
+
+
+
+
 
     }
 }
