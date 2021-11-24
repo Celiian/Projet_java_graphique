@@ -4,6 +4,7 @@ package com.example.demo2;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -41,11 +42,20 @@ public class HelloController implements Initializable{
     @FXML
     private TextField champTitre;
 
+    @FXML
+    private TableView tabLivre;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-       global.getChildren().removeAll(test);
+
+
+
+
+
+
+
 
 
 

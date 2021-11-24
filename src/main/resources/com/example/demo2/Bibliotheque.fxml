@@ -13,142 +13,154 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="550.0" prefWidth="670.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="670.0">
          <children>
-            <VBox prefHeight="550.0" prefWidth="435.0">
+            <HBox prefHeight="550.0" prefWidth="670.0">
                <children>
-                  <ScrollPane prefHeight="550.0" prefWidth="92.0">
-                     <content>
-                        <TableView prefHeight="500.0" prefWidth="430.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="Titre" />
-                            <TableColumn prefWidth="75.0" text="Auteur" />
-                              <TableColumn prefWidth="75.0" text="Résumé" />
-                              <TableColumn prefWidth="75.0" text="Colonne" />
-                              <TableColumn prefWidth="75.0" text="Rangée" />
-                              <TableColumn prefWidth="75.0" text="Parution" />
-                          </columns>
-                        </TableView>
-                     </content>
-                  </ScrollPane>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <VBox prefHeight="550.0" prefWidth="435.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Button">
-                           <HBox.margin>
-                              <Insets left="100.0" />
-                           </HBox.margin>
+                        <ScrollPane prefHeight="550.0" prefWidth="92.0">
+                           <content>
+                              <TableView fx:id="tabLivre" prefHeight="500.0" prefWidth="430.0">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Titre" />
+                                    <TableColumn prefWidth="75.0" text="Auteur" />
+                                    <TableColumn prefWidth="75.0" text="Résumé" />
+                                    <TableColumn prefWidth="75.0" text="Colonne" />
+                                    <TableColumn prefWidth="75.0" text="Rangée" />
+                                    <TableColumn prefWidth="75.0" text="Parution" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" text="Button">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Button">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="boutonValider" prefHeight="550.0" prefWidth="236.0">
+                     <children>
+                        <HBox prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Label prefWidth="80.0" text="Titre :">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="champTitre" prefWidth="140.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Label prefWidth="80.0" text="Auteur :">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="champAuteur" prefWidth="140.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Label prefWidth="80.0" text="Parution :">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="champParution" prefWidth="140.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Label prefWidth="80.0" text="Colonne :">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="champColonne" prefWidth="140.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Label prefWidth="80.0" text="Rangée :">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="champRange" prefWidth="140.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="80.0" text="Résumé :">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <TextArea fx:id="champResume" prefHeight="200.0" prefWidth="140.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <Button mnemonicParsing="false" text="Valider">
+                           <VBox.margin>
+                              <Insets left="60.0" top="20.0" />
+                           </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button">
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </Button>
                      </children>
-                  </HBox>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox fx:id="boutonValider" prefHeight="550.0" prefWidth="236.0">
-               <children>
-                  <HBox prefHeight="60.0" prefWidth="200.0">
-                     <children>
-                        <Label prefWidth="80.0" text="Titre :">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="champTitre" prefWidth="140.0">
-                           <HBox.margin>
-                              <Insets left="14.0" />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="60.0" prefWidth="200.0">
-                     <children>
-                        <Label prefWidth="80.0" text="Auteur :">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="champAuteur" prefWidth="140.0">
-                           <HBox.margin>
-                              <Insets left="13.0" />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="60.0" prefWidth="200.0">
-                     <children>
-                        <Label prefWidth="80.0" text="Parution :">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="champParution" prefWidth="140.0">
-                           <HBox.margin>
-                              <Insets left="4.0" />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="60.0" prefWidth="200.0">
-                     <children>
-                        <Label prefWidth="80.0" text="Colonne :">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="champColonne" prefWidth="140.0" />
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="60.0" prefWidth="200.0">
-                     <children>
-                        <Label prefWidth="80.0" text="Rangée :">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="champRange" prefWidth="140.0" />
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="80.0" text="Résumé :">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <TextArea fx:id="champResume" prefHeight="200.0" prefWidth="140.0" />
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <Button mnemonicParsing="false" text="Valider">
-                     <VBox.margin>
-                        <Insets left="60.0" top="20.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
+      </Pane>
    </children>
-</Pane>
+</VBox>
