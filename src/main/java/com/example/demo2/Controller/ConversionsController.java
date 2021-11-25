@@ -16,6 +16,11 @@ import java.util.ResourceBundle;
 public class ConversionsController implements Initializable {
 
     @FXML
+    private TextField binaireATrad;
+
+    @FXML
+    private TextField binaireTrad;
+    @FXML
     private TextField Romaintrad;
 
     @FXML
@@ -147,14 +152,127 @@ public class ConversionsController implements Initializable {
                }
                Romaintrad.setText(String.valueOf(strRomain));
            }
-           catch (Exception e){
+           catch (Exception ignored){
 
            }
         });
 
 
         Romaintrad.setOnKeyReleased(action -> {
+            int chiffreFinal = 0;
+            try {
+                String romEntre = Romaintrad.getText();
+                chiffreFinal = 0;
+                int x = 0;
+                ArrayList list = new ArrayList();
+                while (true) {
+                    try {
+                        list.add(romEntre.charAt(x));
+                        x++;
+                    } catch (Exception e) {
+                        break;
+                    }
+                }
+                char prochainChar = 'n';
+                for (int i = 0; i < list.size(); i++) {
+                    char charActuel = romEntre.charAt(i);
+                    if(i < (list).size()-1) {
+                        prochainChar = romEntre.charAt(i + 1);
+                    }
+                    if (charActuel == 'M') {
+                        chiffreFinal += 1000;
+                    } else if (charActuel == 'D') {
+                        chiffreFinal += 500;
+                    } else if (charActuel == 'C') {
+                        if (prochainChar == 'M') {
+                            chiffreFinal += 900;
+                            i++;
+                        } else if (prochainChar == 'D') {
+                            chiffreFinal += 400;
+                            i++;
+                        } else {
+                            chiffreFinal += 100;
+                        }
+                    } else if (charActuel == 'X') {
+                        if (prochainChar == 'C') {
+                            chiffreFinal += 90;
+                            i++;
+                        } else if (prochainChar == 'L') {
+                            chiffreFinal += 40;
+                            i++;
+                        } else {
+                            chiffreFinal += 10;
+                        }
+                    } else if (charActuel == 'L') {
+                        chiffreFinal += 50;
+                    } else if (charActuel == 'V') {
+                        chiffreFinal += 5;
+                    } else if (charActuel == 'I') {
+                        if (prochainChar == 'X') {
+                            chiffreFinal += 9;
+                            i++;
+                        } else if (prochainChar == 'V') {
+                            chiffreFinal += 4;
+                            i++;
+                        } else {
+                            chiffreFinal += 1;
+                        }
+                    }
+                }
+            } catch (Exception ignored) {
+            }
+            chiffreRomainATrad.setText(String.valueOf(chiffreFinal));
+        });
 
+
+
+        binaireATrad.setOnKeyReleased(action -> {
+            StringBuilder str = new StringBuilder();
+            try {
+                ArrayList<Integer> listeBinaire = new ArrayList<Integer>();
+                int chiffre = Integer.parseInt(binaireATrad.getText());
+
+                while (chiffre != 0) {
+                    int reste = chiffre % 2;
+                    chiffre = chiffre / 2;
+                    listeBinaire.add(reste);
+                }
+                for (int i = listeBinaire.size()-1; i > 0; i--) {
+                    str.append(listeBinaire.get(i));
+                }
+                str.append(listeBinaire.get(0));
+            }
+            catch (Exception ignore){}
+            binaireTrad.setText(String.valueOf(str));
+        });
+
+        binaireTrad.setOnKeyReleased(action -> {
+            int chiffreFinal = 0;
+            try {
+                ArrayList<Integer> listeBinair = new ArrayList<Integer>();
+                int binaire = Integer.parseInt(binaireTrad.getText());
+                String binaireStr = String.valueOf(binaire);
+                int x = 0;
+                int add = 0;
+                while (true) {
+                    try {
+                        add = Integer.parseInt(String.valueOf(binaireStr.charAt(x)));
+                        listeBinair.add(add);
+                        x++;
+                    } catch (Exception e) {
+                        break;
+                    }
+                }
+                chiffreFinal += Math.pow(add, listeBinair.size());
+                int y = 0;
+                for (int i = listeBinair.size() - 1; i >= 0; i--) {
+                    int pow = listeBinair.get(y);
+                    chiffreFinal += pow* Math.pow(2, i);
+                    y ++;
+                }
+                binaireATrad.setText(String.valueOf(chiffreFinal));
+            }
+            catch (Exception ignore){}
         });
     }
 }

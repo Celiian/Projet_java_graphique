@@ -169,7 +169,7 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre" />
                                           <TextField prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -182,7 +182,7 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Hexa" />
                                           <TextField prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -215,8 +215,8 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
-                                          <TextField prefHeight="26.0" prefWidth="198.0" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre" />
+                                          <TextField fx:id="binaireATrad" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
                                           <Insets top="30.0" />
@@ -228,8 +228,8 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
-                                          <TextField prefHeight="26.0" prefWidth="198.0" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Binaire" />
+                                          <TextField fx:id="binaireTrad" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
                                           <Insets top="30.0" />
