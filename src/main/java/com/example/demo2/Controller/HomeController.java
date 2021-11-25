@@ -20,28 +20,40 @@ public class HomeController implements Initializable{
     private VBox boxGlobal;
 
     @FXML
+    private VBox boxConv;
+
+    @FXML
     private Button boutonBibliotheque;
 
     @FXML
     private Button boutonArmee;
 
     @FXML
-    private Button boutonChiffreRomain;
+    private Button boutonConversions;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        boxGlobal.getChildren().removeAll(boxArmee, boxBibli);
+        boxGlobal.getChildren().removeAll(boxArmee, boxBibli, boxConv);
 
         boutonArmee.setOnMouseClicked(action -> {
             boxGlobal.getChildren().addAll(boxArmee);
             boxGlobal.getChildren().removeAll(boxBibli);
+            boxGlobal.getChildren().remove(boxConv);
 
         });
         boutonBibliotheque.setOnMouseClicked(action ->{
             boxGlobal.getChildren().add(boxBibli);
             boxGlobal.getChildren().removeAll(boxArmee);
-
+            boxGlobal.getChildren().remove(boxConv);
         });
+
+        boutonConversions.setOnMouseClicked(action -> {
+            boxGlobal.getChildren().removeAll(boxBibli);
+            boxGlobal.getChildren().removeAll(boxArmee);
+            boxGlobal.getChildren().add(boxConv);
+        });
+
+
 
     }
 }

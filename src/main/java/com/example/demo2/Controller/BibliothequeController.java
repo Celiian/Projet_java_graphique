@@ -82,6 +82,9 @@ public class BibliothequeController implements Initializable {
         TableColumn titreColonne = new TableColumn("titre");
         titreColonne.setCellValueFactory(new PropertyValueFactory<>("titre"));
 
+        TableColumn resumeColonne = new TableColumn("resume");
+        resumeColonne.setCellValueFactory(new PropertyValueFactory<>("resume"));
+
         TableColumn parutionColonne = new TableColumn("parution");
         parutionColonne.setCellValueFactory(new PropertyValueFactory<>("parution"));
 
@@ -91,14 +94,11 @@ public class BibliothequeController implements Initializable {
         TableColumn rangeeColonne = new TableColumn("range");
         rangeeColonne.setCellValueFactory(new PropertyValueFactory<>("range"));
 
-        TableColumn resumeColonne = new TableColumn("resume");
-        resumeColonne.setCellValueFactory(new PropertyValueFactory<>("resume"));
-
         TableColumn urlColonne = new TableColumn("url");
         resumeColonne.setCellValueFactory(new PropertyValueFactory<>("url"));
 
         //Ajoute les colonnes au tableau
-        tabLivre.getColumns().addAll(titreColonne, auteurColonne, resumeColonne, colonneColonne, rangeeColonne, parutionColonne);
+        tabLivre.getColumns().addAll(titreColonne, auteurColonne, resumeColonne, colonneColonne, rangeeColonne, parutionColonne, urlColonne);
 
 
 
@@ -110,11 +110,19 @@ public class BibliothequeController implements Initializable {
             int range = Integer.parseInt(champRange.getText());
             int colonne = Integer.parseInt(champColonne.getText());
             String resume = champResume.getText();
+            System.out.println(resume);
             String urlImage =  urlImg.getText();
             Livre livre = new Livre(titre, auteur, resume, colonne, range, parution, (tabLivre.getItems().size()+1), urlImage);
             tabLivre.getItems().add(livre);
             boxForm.setVisible(false);
             boutonValider.setVisible(false);
+            img.setVisible(false);
+            champResume.setText("");
+            champRange.setText("");
+            champParution.setText("");
+            champColonne.setText("");
+            champTitre.setText("");
+            champAuteur.setText("");
         });
 
         //Affiche les info du livre selectionné et le bouton de modification
@@ -138,7 +146,6 @@ public class BibliothequeController implements Initializable {
         //Affiche le formulaire de création de livre
         boutonAjouter.setOnMouseClicked(action -> {
             boxForm.setVisible(true);
-            boutonValider.setVisible(true);
             boutonModifier.setVisible(false);
         });
 
@@ -178,6 +185,12 @@ public class BibliothequeController implements Initializable {
             }
             boutonModifier.setVisible(false);
             boxForm.setVisible(false);
+            champResume.setText("");
+            champRange.setText("");
+            champParution.setText("");
+            champColonne.setText("");
+            champTitre.setText("");
+            champAuteur.setText("");
         });
         //Permet de retirer un livre du tableau et retrie les livres (en leur réatribuant le bon index si nécessaire)
         boutonRetirer.setOnMouseClicked(action -> {
@@ -202,6 +215,7 @@ public class BibliothequeController implements Initializable {
             String urlImage =  urlImg.getText();
             Image imageUrl = new Image(urlImage);
             img.setImage(imageUrl);
+            img.setVisible(true);
         });
 
 
@@ -234,7 +248,7 @@ public class BibliothequeController implements Initializable {
             champParution.equals(parution_string);
             champParution.setStyle("-fx-border-color: red;");
             parutionBon = false;
-            if(parutionBon){
+            if(!parutionBon){
                 boutonValider.setVisible(false);
             }
 
@@ -256,7 +270,7 @@ public class BibliothequeController implements Initializable {
             champRange.equals(range);
             champRange.setStyle("-fx-border-color: red;");
             rangeBon = false;
-            if(rangeBon){
+            if(!rangeBon){
                 boutonValider.setVisible(false);
             }
         });
@@ -277,7 +291,7 @@ public class BibliothequeController implements Initializable {
             champColonne.equals(colonne);
             champColonne.setStyle("-fx-border-color: red;");
             colonneBon = false;
-            if(colonneBon){
+            if(!colonneBon){
                 boutonValider.setVisible(false);
             }
         });
@@ -302,9 +316,6 @@ public class BibliothequeController implements Initializable {
             if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
                 boutonValider.setVisible(true);
             }
-
         });
-
-
     }
 }

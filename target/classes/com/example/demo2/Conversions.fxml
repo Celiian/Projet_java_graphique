@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox minHeight="530.0" minWidth="633.0" prefHeight="530.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.Controller.ConversionsController">
+   <children>
+      <ScrollPane prefHeight="538.0" prefWidth="633.0">
+         <content>
+            <VBox prefHeight="530.0" prefWidth="615.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Calcul d'IMC">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="230.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="308.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Poid :" />
+                                          <TextField fx:id="poid" prefHeight="26.0" prefWidth="198.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Taille :" />
+                                          <TextField fx:id="taille" prefHeight="26.0" prefWidth="198.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <HBox prefHeight="112.0" prefWidth="317.0">
+                                 <children>
+                                    <Label maxWidth="150.0" prefWidth="150.0" text="IMC  -&gt;">
+                                       <padding>
+                                          <Insets left="50.0" />
+                                       </padding>
+                                    </Label>
+                                    <Text fx:id="imc" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="151.21630859375" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="30.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Line endX="513.2929077148438" endY="-1.8639612197875977" startX="-100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Conversion Chiffre Romain">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="180.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="308.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre" />
+                                          <TextField fx:id="chiffreRomainATrad" prefHeight="26.0" prefWidth="198.0">
+                                             <HBox.margin>
+                                                <Insets right="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="307.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Conversion Romaine" />
+                                          <TextField fx:id="Romaintrad" prefHeight="26.0" prefWidth="198.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="30.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Line endX="513.2929077148438" endY="-1.8639612197875977" startX="-100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Conversion HexaDécimale">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="180.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="308.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
+                                          <TextField prefHeight="26.0" prefWidth="198.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="307.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
+                                          <TextField prefHeight="26.0" prefWidth="198.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="30.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Line endX="513.2929077148438" endY="-1.8639612197875977" startX="-100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Conversion Binaire">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="210.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="308.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
+                                          <TextField prefHeight="26.0" prefWidth="198.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="307.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Label" />
+                                          <TextField prefHeight="26.0" prefWidth="198.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="30.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
