@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.Controller.BibliothequeController">
+<VBox fx:id="boxBibli" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.Controller.BibliothequeController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="670.0">
          <children>
@@ -44,7 +44,7 @@
                   </VBox>
                   <VBox prefHeight="524.0" prefWidth="228.0">
                      <children>
-                        <VBox fx:id="boxForm" prefHeight="437.0" prefWidth="236.0">
+                        <VBox fx:id="boxForm" prefHeight="437.0" prefWidth="236.0" visible="false">
                            <children>
                               <HBox prefHeight="60.0" prefWidth="200.0">
                                  <children>
@@ -165,8 +165,8 @@
                         </VBox>
                         <Pane fx:id="paneBoutons" prefHeight="94.0" prefWidth="216.0">
                            <children>
-                              <Button fx:id="boutonModifier" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Modifier" />
-                              <Button fx:id="boutonValider" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Valider" />
+                              <Button fx:id="boutonModifier" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Modifier" visible="false" />
+                              <Button fx:id="boutonValider" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Valider" visible="false" />
                               <ImageView fx:id="img" fitHeight="100.0" fitWidth="140.0" layoutX="91.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="https://www.crushpixel.com/big-static18/preview4/hj-script-logo-design-vector-2988652.jpghttps://www.crushpixel.com/big-static18/preview4/hj-script-logo-design-vector-2988652.jpg" />

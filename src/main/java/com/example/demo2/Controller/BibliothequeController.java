@@ -1,6 +1,6 @@
 package com.example.demo2.Controller;
 
-import com.example.demo2.Livre;
+import com.example.demo2.classes.Livre;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -10,8 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import java.io.File;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -51,8 +49,11 @@ public class BibliothequeController implements Initializable {
     @FXML
     private Button boutonModifier;
 
+
     @FXML
     private VBox boxForm;
+
+
 
     @FXML
     private ImageView img;
@@ -86,7 +87,7 @@ public class BibliothequeController implements Initializable {
         resumeColonne.setCellValueFactory(new PropertyValueFactory<>("resume"));
 
         TableColumn urlColonne = new TableColumn("url");
-        resumeColonne.setCellValueFactory(new PropertyValueFactory<>("resume"));
+        resumeColonne.setCellValueFactory(new PropertyValueFactory<>("url"));
 
         //Ajoute les colonnes au tableau
         tabLivre.getColumns().addAll(titreColonne, auteurColonne, resumeColonne, colonneColonne, rangeeColonne, parutionColonne);
@@ -155,12 +156,13 @@ public class BibliothequeController implements Initializable {
                 list.add(tabLivre.getItems().get(i));
             }
             for(int i = list.size() - 1 ; i >= 1; i--){
-                for(int j = 0 ; j<i ; j++)
-                    if(list.get(j).getIndex() > list.get(j+1).getIndex()){
-                        Livre livre = list.get(j+1);
-                        list.set(j+1, list.get(j));
+                for(int j = 0 ; j<i ; j++){
+                    if(list.get(j).getIndex() > list.get(j+1).getIndex()) {
+                        Livre livre = list.get(j + 1);
+                        list.set(j + 1, list.get(j));
                         list.set(j, livre);
                     }
+                }
             }
             tabLivre.getItems().clear();
             for (int i = 0; i < list.size(); i ++) {
