@@ -7,6 +7,8 @@ import com.example.demo2.classes.Soldat;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -59,38 +61,56 @@ public class ArmeeController implements Initializable{
     @FXML
     private Label errorMsg;
 
+    @FXML
+    private Label lblNbSoldat;
+
     TreeItem<Humain> rootItem = new TreeItem<Humain>();
     TreeView<Humain> tree = new TreeView<Humain>(rootItem);
     int index = 0;
+    int taille = -1;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         rootItem.setExpanded(true);
-        tree.setMaxHeight(300);
+        tree.setMaxHeight(515);
+        tree.setMaxWidth(400);
 
         paneTree.getChildren().add(tree);
 
         boxFormArmee.setVisible(false);
 
-        tree.setOnMouseClicked(action -> {
 
-            if(tree.getSelectionModel().isSelected(0)){
-                boxFormArmee.setVisible(true);
-                boxFormArmee.getChildren().removeAll(boxPv, boxGrade, boxNom, boxNbSoldat, validFormArmee);
-                boxFormArmee.getChildren().addAll(boxNom, boxNbSoldat, validFormArmee);
+        tree.setOnMouseClicked(MouseEvent -> {
+            int count = MouseEvent.getClickCount();
+
+            if (count == 1) {
+                if (tree.getSelectionModel().isSelected(0)) {
+                    boxFormArmee.setVisible(true);
+                    boxFormArmee.getChildren().removeAll(boxPv, boxGrade, boxNom, boxNbSoldat, validFormArmee);
+                    boxFormArmee.getChildren().addAll(boxNom, boxNbSoldat, validFormArmee);
+                }
+
+                if (!tree.getSelectionModel().isSelected(0)) {
+                    boxFormArmee.setVisible(true);
+                    boxFormArmee.getChildren().removeAll(boxNbSoldat, boxNom, boxPv, boxGrade, validFormArmee);
+                    boxFormArmee.getChildren().addAll(boxNom, boxPv, boxGrade, validFormArmee);
+                }
             }
-
-
-            index = tree.getSelectionModel().getSelectedIndex();
-            System.out.println(index);
-            if(index != 0) {
-                boxFormArmee.setVisible(true);
-                boxFormArmee.getChildren().removeAll(boxNbSoldat, boxNom, boxPv, boxGrade, validFormArmee);
-                boxFormArmee.getChildren().addAll(boxNom, boxPv, boxGrade, validFormArmee);
+            else {
+                if(tree.getSelectionModel().getSelectedItem().expandedProperty().get()){
+                    boxFormArmee.setVisible(true);
+                    boxFormArmee.getChildren().removeAll(boxPv, boxGrade, boxNom, boxNbSoldat, validFormArmee);
+                    boxFormArmee.getChildren().addAll(boxNom, boxNbSoldat, validFormArmee);
+                }
+                else if (!tree.getSelectionModel().getSelectedItem().expandedProperty().get()) {
+                    boxFormArmee.setVisible(true);
+                    boxFormArmee.getChildren().removeAll(boxNbSoldat, boxNom, boxPv, boxGrade, validFormArmee);
+                    boxFormArmee.getChildren().addAll(boxNom, boxPv, boxGrade, validFormArmee);
+                }
             }
-            index = index -1;
-            System.out.println(index);
         });
+
+
 
         validFormArmee.setOnMouseClicked(action -> {
             errorMsg.setText("");
@@ -109,24 +129,26 @@ public class ArmeeController implements Initializable{
             if (isSoldat){
                 Soldat soldat = new Soldat(nomSoldat, nombrePv, gradeSoldat);
                 TreeItem<Humain> humain = new TreeItem<Humain>(soldat);
-                System.out.println(index);
-                TreeItem<Humain> item = rootItem.getChildren().get(index);
-                item.getChildren().add(humain);
+                if(tree.getSelectionModel().getSelectedItem().expandedProperty().get()){
+                    TreeItem<Humain> item = tree.getSelectionModel().getSelectedItem();
+                    item.getChildren().add(humain);
+                }
+                else {
+                    errorMsg.setText("Veuillez choisir un noeud Géneral");
                 }
 
-
+            }
             else {
                 General general = new General(nomSoldat);
                 TreeItem<Humain> humain = new TreeItem<Humain>(general);
                 humain.setExpanded(true);
                 rootItem.getChildren().add(humain);
+                taille ++;
             }
 
             nbPv.setText("");
             nom.setText("");
             grade.setText("");
         });
-
-
     }
 }

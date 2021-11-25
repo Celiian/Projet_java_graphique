@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -17,11 +18,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="529.0" prefWidth="413.0">
                      <children>
-                        <Button fx:id="boutonSoldat" layoutX="107.0" layoutY="409.0" mnemonicParsing="false" text="Créer Soldat" />
-                        <Button fx:id="boutonGeneral" layoutX="288.0" layoutY="410.0" mnemonicParsing="false" text="Créer Général" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" />
-                        <Pane fx:id="paneTree" layoutX="107.0" layoutY="100.0" maxHeight="300.0" maxWidth="250.0" prefHeight="298.0" prefWidth="250.0" />
-                        <Label fx:id="errorMsg" layoutX="162.0" layoutY="466.0" textFill="#831111" />
+                        <VBox prefHeight="530.0" prefWidth="414.0" />
+                        <Pane fx:id="paneTree" maxHeight="515.0" maxWidth="400.0" prefHeight="515.0" prefWidth="400.0" />
                      </children>
                   </AnchorPane>
               </content>
@@ -30,28 +28,50 @@
                <children>
                   <HBox fx:id="boxNom" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Nom :" />
-                        <TextField fx:id="nom" text=" " />
+                        <Label maxWidth="130.0" prefWidth="100.0" text="Nom :" />
+                        <TextField fx:id="nom" maxWidth="100.0" text=" ">
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin></TextField>
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox fx:id="boxPv" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Nombre de pv" />
-                        <TextField fx:id="nbPv" />
+                        <Label maxWidth="130.0" prefWidth="100.0" text="Nombre de pv : " />
+                        <TextField fx:id="nbPv" maxWidth="100.0">
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin></TextField>
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox fx:id="boxGrade" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Grade" />
-                        <TextField fx:id="grade" />
+                        <Label maxWidth="130.0" prefWidth="100.0" text="Grade : " />
+                        <TextField fx:id="grade" maxWidth="100.0">
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin></TextField>
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox fx:id="boxNbSoldat" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Nombre de soldats :" />
-                        <Label />
+                        <Label fx:id="lblNbSoldat" />
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
+                  <Label fx:id="errorMsg" prefHeight="17.0" prefWidth="231.0" textFill="#831111" />
                   <Button fx:id="validFormArmee" mnemonicParsing="false" text="Valider" />
                </children>
             </VBox>
