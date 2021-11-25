@@ -72,12 +72,17 @@
                      </VBox.margin>
                   </HBox>
                   <Label fx:id="errorMsg" prefHeight="17.0" prefWidth="231.0" textFill="#831111" />
-                  <Pane prefHeight="151.0" prefWidth="250.0">
+                  <HBox fx:id="boxButton" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnModif" layoutX="94.0" layoutY="7.0" mnemonicParsing="false" text="Modifier" visible="false" />
-                        <Button fx:id="validFormArmee" layoutX="98.0" layoutY="7.0" mnemonicParsing="false" text="Valider" />
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnSupp" layoutX="108.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="Supprimer" />
+                              <Button fx:id="validFormArmee" layoutX="11.0" mnemonicParsing="false" text="Valider" />
+                              <Button fx:id="btnModif" layoutX="8.0" mnemonicParsing="false" text="Modifier" />
+                           </children>
+                        </Pane>
                      </children>
-                  </Pane>
+                  </HBox>
                </children>
             </VBox>
          </children>
