@@ -75,7 +75,7 @@ public class BibliothequeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //Crée les colonnes dans le tableau
+        //CREER DES COLONNES DANS LE TABLEAU QUI VONT PERMETTRE D'AFFICHER UN OBJET LIVRE FACILEMENT
         TableColumn auteurColonne = new TableColumn("auteur");
         auteurColonne.setCellValueFactory(new PropertyValueFactory<>("auteur"));
 
@@ -97,12 +97,14 @@ public class BibliothequeController implements Initializable {
         TableColumn urlColonne = new TableColumn("url");
         resumeColonne.setCellValueFactory(new PropertyValueFactory<>("url"));
 
-        //Ajoute les colonnes au tableau
+        //AJOUTE LES COLONNES AU TABLEAU
         tabLivre.getColumns().addAll(titreColonne, auteurColonne, resumeColonne, colonneColonne, rangeeColonne, parutionColonne, urlColonne);
 
 
 
-        //Permet de créer un livre et de l'ajouter dans le tableau après avoir correctement rempli les champs
+        //PERMET DE CREER UN LIVRE PUIS DE L'AJOUTER DANS LE TABLEAU APRES AVOIR CORRECTEMENT REMPLI LES CHAMPS REQUIS
+        //recupere les données entrés / crée un objet livre / ajoute l'objet livre au tableau / vide les champs /
+        // cache le formulaire et le bouton
         boutonValider.setOnMouseClicked(action -> {
             String titre = champTitre.getText();
             String auteur = champAuteur.getText();
@@ -125,7 +127,7 @@ public class BibliothequeController implements Initializable {
             champAuteur.setText("");
         });
 
-        //Affiche les info du livre selectionné et le bouton de modification
+        //AFFICHE LE FORMULAIRE DE MODIFICATION PREREMPLI ET LE BOUTON MODIFIER AFIN DE MODIFIER UN LIVRE
         tabLivre.setOnMouseClicked(action -> {
             try {
                 int index = tabLivre.getSelectionModel().getSelectedIndex();
@@ -143,13 +145,16 @@ public class BibliothequeController implements Initializable {
             }
         });
 
-        //Affiche le formulaire de création de livre
+        //AFFICHE LE FORMULAIRE DE CREATION DE LIVRE
         boutonAjouter.setOnMouseClicked(action -> {
             boxForm.setVisible(true);
             boutonModifier.setVisible(false);
         });
 
-        //Permet de modifier un element d'un livre et le range a sa place (en utilisant un algorothme de tri basé sur l'index du livre (renseigné lors de sa création))
+        //PERMET DE MODIFIER UN ELEMENT
+        //utilise un algorythme de tri par index afin de pouvoir réaranger les livres dans le bon
+        //ordre une fois un livre modifié création d'une nouvelle version modifié / suppression de l'ancienne /
+        //ajout de la nouvelle / tri des livres
         boutonModifier.setOnMouseClicked(action -> {
             String titre = champTitre.getText();
             String auteur = champAuteur.getText();
@@ -192,7 +197,11 @@ public class BibliothequeController implements Initializable {
             champTitre.setText("");
             champAuteur.setText("");
         });
-        //Permet de retirer un livre du tableau et retrie les livres (en leur réatribuant le bon index si nécessaire)
+
+        //PERMET DE RETIRER UN LIVRE DU TABLEAU PUIS DE REAFFECTER LES LIVRES AU BON EMPLACEMENT
+        //CELA PERMET D'EVITER D'AVOIR UN VIDE DANS LE TABLEAU
+        //Utilise l'index de l'objet livre qui leur à été attribué a leur création et qui leur permet de bien se positionner
+        //index modifiés si nécessaire
         boutonRetirer.setOnMouseClicked(action -> {
             int index = tabLivre.getSelectionModel().getSelectedIndex();
             Livre actualLivre = tabLivre.getItems().get(index);
@@ -210,7 +219,8 @@ public class BibliothequeController implements Initializable {
             }
         });
 
-        //Permet quand on colle un lien d'image d'afficher l'image
+        //PERMET AVEC UN LIEN D'IMAGE D'AFFICHER UNE PREVIEW DE L'IMAGE DANS LA BALISE IMAGEVIEW
+        // (DISPARAIT QUAND LE FORMULAIRE EST VALIDE)
         urlImg.setOnKeyReleased(action -> {
             String urlImage =  urlImg.getText();
             Image imageUrl = new Image(urlImage);
@@ -219,7 +229,8 @@ public class BibliothequeController implements Initializable {
         });
 
 
-//Vérification en cas d'érreurs
+        //EFFECTUE LES VERIFICATIONS POSITIVES (MET LES CHAMPS EN VERT SI BIENS REMPLIS)
+        //SI TOUS LES CHAMPS SONT BIEN REMPLIS, FAIS APPARRAITRE LE BOUTON VALIDER
         champTitre.setOnKeyReleased(verif_bon->{
             String titre = champTitre.getText();
             champTitre.equals(titre);
@@ -243,17 +254,6 @@ public class BibliothequeController implements Initializable {
             }
         }));
 
-        champParution.setOnKeyTyped(verif_error->{
-            String parution_string = champParution.getText();
-            champParution.equals(parution_string);
-            champParution.setStyle("-fx-border-color: red;");
-            parutionBon = false;
-            if(!parutionBon){
-                boutonValider.setVisible(false);
-            }
-
-        });
-
         champParution.setOnKeyReleased(verif_bon->{
             int parution = Integer.parseInt(champParution.getText());
             champParution.equals(parution);
@@ -265,16 +265,6 @@ public class BibliothequeController implements Initializable {
             }
         });
 
-        champRange.setOnKeyTyped(verif_error->{
-            String range = champRange.getText();
-            champRange.equals(range);
-            champRange.setStyle("-fx-border-color: red;");
-            rangeBon = false;
-            if(!rangeBon){
-                boutonValider.setVisible(false);
-            }
-        });
-
         champRange.setOnKeyReleased(verif_bon->{
             int range = Integer.parseInt(champRange.getText());
             champRange.equals(range);
@@ -283,16 +273,6 @@ public class BibliothequeController implements Initializable {
             rangeBon = true;
             if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
                 boutonValider.setVisible(true);
-            }
-        });
-
-        champColonne.setOnKeyTyped(verif_error->{
-            String colonne = champColonne.getText();
-            champColonne.equals(colonne);
-            champColonne.setStyle("-fx-border-color: red;");
-            colonneBon = false;
-            if(!colonneBon){
-                boutonValider.setVisible(false);
             }
         });
 
@@ -317,5 +297,42 @@ public class BibliothequeController implements Initializable {
                 boutonValider.setVisible(true);
             }
         });
+
+
+        //_________________
+        //EFFECTUE LES VERIFICATION D'ERREUR DES CHAMPS NECESSITANTS UN ENTIER EN PARAMETTRE
+        //MET LA BORDURE DU CHAMP EN ROUGE SI AUTRE CHOSE QU'UN ENTIER EST TAPPE
+        champRange.setOnKeyTyped(verif_error->{
+            String range = champRange.getText();
+            champRange.equals(range);
+            champRange.setStyle("-fx-border-color: red;");
+            rangeBon = false;
+            if(!rangeBon){
+                boutonValider.setVisible(false);
+            }
+        });
+
+        champColonne.setOnKeyTyped(verif_error->{
+            String colonne = champColonne.getText();
+            champColonne.equals(colonne);
+            champColonne.setStyle("-fx-border-color: red;");
+            colonneBon = false;
+            if(!colonneBon){
+                boutonValider.setVisible(false);
+            }
+        });
+
+        champParution.setOnKeyTyped(verif_error->{
+            String parution_string = champParution.getText();
+            champParution.equals(parution_string);
+            champParution.setStyle("-fx-border-color: red;");
+            parutionBon = false;
+            if(!parutionBon){
+                boutonValider.setVisible(false);
+            }
+
+        });
+
+
     }
 }
