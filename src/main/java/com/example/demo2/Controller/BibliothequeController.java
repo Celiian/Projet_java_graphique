@@ -64,6 +64,14 @@ public class BibliothequeController implements Initializable {
     @FXML
     private TextField urlImg;
 
+    boolean titreBon = false;
+    boolean auteurBon = false;
+    boolean parutionBon = false;
+    boolean colonneBon = false;
+    boolean rangeBon = false;
+    boolean resumeBon = false;
+    boolean imgurlBon = false;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -197,7 +205,105 @@ public class BibliothequeController implements Initializable {
         });
 
 
+//Vérification en cas d'érreurs
+        champTitre.setOnKeyReleased(verif_bon->{
+            String titre = champTitre.getText();
+            champTitre.equals(titre);
+            champTitre.onKeyTypedProperty().getValue();
+            champTitre.setStyle("-fx-border-color: green;");
+            titreBon = true;
+            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                boutonValider.setVisible(true);
+            }
 
+        });
+
+        champAuteur.setOnKeyReleased((verif_bon->{
+            String auteur = champAuteur.getText();
+            champAuteur.equals(auteur);
+            champAuteur.onKeyTypedProperty().getValue();
+            champAuteur.setStyle("-fx-border-color: green;");
+            auteurBon = true;
+            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                boutonValider.setVisible(true);
+            }
+        }));
+
+        champParution.setOnKeyTyped(verif_error->{
+            String parution_string = champParution.getText();
+            champParution.equals(parution_string);
+            champParution.setStyle("-fx-border-color: red;");
+            parutionBon = false;
+            if(parutionBon){
+                boutonValider.setVisible(false);
+            }
+
+        });
+
+        champParution.setOnKeyReleased(verif_bon->{
+            int parution = Integer.parseInt(champParution.getText());
+            champParution.equals(parution);
+            champParution.onKeyTypedProperty().getValue();
+            champParution.setStyle("-fx-border-color: green;");
+            parutionBon = true;
+            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                boutonValider.setVisible(true);
+            }
+        });
+
+        champRange.setOnKeyTyped(verif_error->{
+            String range = champRange.getText();
+            champRange.equals(range);
+            champRange.setStyle("-fx-border-color: red;");
+            rangeBon = false;
+            if(rangeBon){
+                boutonValider.setVisible(false);
+            }
+        });
+
+        champRange.setOnKeyReleased(verif_bon->{
+            int range = Integer.parseInt(champRange.getText());
+            champRange.equals(range);
+            champRange.onKeyTypedProperty().getValue();
+            champRange.setStyle("-fx-border-color: green;");
+            rangeBon = true;
+            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                boutonValider.setVisible(true);
+            }
+        });
+
+        champColonne.setOnKeyTyped(verif_error->{
+            String colonne = champColonne.getText();
+            champColonne.equals(colonne);
+            champColonne.setStyle("-fx-border-color: red;");
+            colonneBon = false;
+            if(colonneBon){
+                boutonValider.setVisible(false);
+            }
+        });
+
+        champColonne.setOnKeyReleased(verif_bon->{
+            int colonne = Integer.parseInt(champColonne.getText());
+            champColonne.equals(colonne);
+            champColonne.onKeyTypedProperty().getValue();
+            champColonne.setStyle("-fx-border-color: green;");
+            colonneBon = true;
+            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                boutonValider.setVisible(true);
+            }
+        });
+
+        champResume.setOnKeyReleased(verif_bon->{
+            String resume = champResume.getText();
+            champResume.equals(resume);
+            champResume.onKeyTypedProperty().getValue();
+            champResume.setStyle("-fx-border-color: green;");
+            resumeBon = true;
+            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                boutonValider.setVisible(true);
+            }
+
+        });
 
 
     }

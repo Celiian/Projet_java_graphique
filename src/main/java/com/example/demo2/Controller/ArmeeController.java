@@ -202,7 +202,6 @@ public class ArmeeController implements Initializable{
         validFormArmee.setOnMouseClicked(action -> {
             errorMsg.setText("");
 
-
             int nombrePv = 0;
             String gradeSoldat = "";
             String nomSoldat = nom.getText();

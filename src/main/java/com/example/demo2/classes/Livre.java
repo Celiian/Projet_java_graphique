@@ -2,20 +2,20 @@ package com.example.demo2.classes;
 
 public class Livre {
 
-    private String Titre;
-    private String Auteur;
-    private String Resume;
-    private int Colonne;
+    private String titre;
+    private String auteur;
+    private String resume;
+    private int colonne;
     private int range;
     private int parution;
     private int index;
     private String url;
 
     public Livre(String titre, String auteur, String resume, int colonne, int range, int parution, int index, String url) {
-        this.Titre = titre;
-        this.Auteur = auteur;
-        this.Resume = resume;
-        this.Colonne = colonne;
+        this.titre = titre;
+        this.auteur = auteur;
+        this.resume = resume;
+        this.colonne = colonne;
         this.range = range;
         this.parution = parution;
         this.index = index;
@@ -23,35 +23,35 @@ public class Livre {
     }
 
     public String getTitre() {
-        return Titre;
+        return titre;
     }
 
     public void setTitre(String titre) {
-        Titre = titre;
+        this.titre = titre;
     }
 
     public String getAuteur() {
-        return Auteur;
+        return auteur;
     }
 
     public void setAuteur(String auteur) {
-        Auteur = auteur;
+        this.auteur = auteur;
     }
 
     public String getResume() {
-        return Resume;
+        return resume;
     }
 
     public void setResume(String resume) {
-        Resume = resume;
+        this.resume = resume;
     }
 
     public int getColonne() {
-        return Colonne;
+        return colonne;
     }
 
     public void setColonne(int colonne) {
-        Colonne = colonne;
+        this.colonne = colonne;
     }
 
     public int getRange() {
@@ -81,10 +81,10 @@ public class Livre {
     @Override
     public String toString() {
         return "Livre{" +
-                "Titre='" + Titre + '\'' +
-                ", Auteur='" + Auteur + '\'' +
-                ", Resume='" + Resume + '\'' +
-                ", Colonne=" + Colonne +
+                "Titre='" + titre + '\'' +
+                ", Auteur='" + auteur + '\'' +
+                ", Resume='" + resume + '\'' +
+                ", Colonne=" + colonne +
                 ", range=" + range +
                 ", parution=" + parution +
                 '}';
