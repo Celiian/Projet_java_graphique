@@ -48,7 +48,6 @@ public class HomeController implements Initializable{
             boxGlobal.getChildren().addAll(boxArmee);
             boxGlobal.getChildren().removeAll(boxBibli);
             boxGlobal.getChildren().remove(boxConv);
-
         });
         boutonBibliotheque.setOnMouseClicked(action ->{
             boxGlobal.getChildren().add(boxBibli);

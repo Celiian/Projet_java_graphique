@@ -10,6 +10,11 @@ public class General extends Humain{
 
     @Override
     public String toString() {
-        return "General : " + getNom();
+        if(getNom().equals("msg-root")){
+            return "Cliquez ici pour ajouter un Général";
+        }
+        else {
+            return "General : " + getNom();
+        }
     }
 }

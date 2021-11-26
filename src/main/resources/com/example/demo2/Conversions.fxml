@@ -122,6 +122,7 @@
                               <Insets left="180.0" />
                            </VBox.margin>
                         </Label>
+                        <Label fx:id="errorRom" prefHeight="17.0" prefWidth="793.0" textFill="#610e0e" />
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <VBox prefHeight="100.0" prefWidth="308.0">
@@ -164,6 +165,9 @@
                            </VBox.margin>
                         </HBox>
                      </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                   </VBox>
                   <Line endX="533.2929077148438" startX="-100.0">
                      <rotationAxis>
@@ -230,6 +234,9 @@
                            </VBox.margin>
                         </HBox>
                      </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                   </VBox>
                   <Line endX="532.2929077148438" startX="-100.0" />
                   <VBox prefHeight="200.0" prefWidth="100.0">
@@ -292,6 +299,9 @@
                            </VBox.margin>
                         </HBox>
                      </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -309,7 +319,7 @@
                               <Font size="14.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="140.0" />
+                              <Insets top="30.0" />
                            </VBox.margin>
                         </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0">

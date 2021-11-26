@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="boxBibli" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.Controller.BibliothequeController">
+<VBox fx:id="boxBibli" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.Controller.BibliothequeController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="670.0">
          <children>
@@ -26,17 +26,23 @@
                               <TableView fx:id="tabLivre" prefHeight="500.0" prefWidth="430.0" />
                            </content>
                         </ScrollPane>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
                            <children>
-                              <Button fx:id="boutonAjouter" mnemonicParsing="false" text="Ajouter un livre">
+                              <Button fx:id="boutonAjouter" maxHeight="0.0" maxWidth="27.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="27.0" style="-fx-background-color: white;">
                                  <HBox.margin>
-                                    <Insets left="60.0" />
+                                    <Insets left="100.0" />
                                  </HBox.margin>
+                                 <graphic>
+                                    <ImageView fx:id="imgbtnAjouter" fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
                               </Button>
-                              <Button fx:id="boutonRetirer" mnemonicParsing="false" text="Retirer un livre">
+                              <Button fx:id="boutonRetirer" maxHeight="0.0" maxWidth="27.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="27.0" style="-fx-background-color: white;">
                                  <HBox.margin>
-                                    <Insets left="20.0" />
+                                    <Insets left="100.0" />
                                  </HBox.margin>
+                                 <graphic>
+                                    <ImageView fx:id="imgBtnSupp" fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
                               </Button>
                               <Label fx:id="errorRetirer" prefHeight="17.0" prefWidth="162.0" textFill="#5e0c0c" />
                            </children>
@@ -185,8 +191,14 @@
                         </VBox>
                         <Pane fx:id="paneBoutons" prefHeight="94.0" prefWidth="216.0">
                            <children>
-                              <Button fx:id="boutonModifier" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Modifier" visible="false" />
-                              <Button fx:id="boutonValider" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" text="Valider" visible="false" />
+                              <Button fx:id="boutonModifier" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Modifier" visible="false">
+                                 <graphic>
+                                    <ImageView fx:id="imgBtnModif" fitHeight="36.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic></Button>
+                              <Button fx:id="boutonValider" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="25.0" style="-fx-background-color: white;" text="Valider" visible="false">
+                                 <graphic>
+                                    <ImageView fx:id="imgBtnValider" fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic></Button>
                               <ImageView fx:id="img" fitHeight="100.0" fitWidth="140.0" layoutX="91.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="https://www.crushpixel.com/big-static18/preview4/hj-script-logo-design-vector-2988652.jpghttps://www.crushpixel.com/big-static18/preview4/hj-script-logo-design-vector-2988652.jpg" />

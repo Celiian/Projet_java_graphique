@@ -78,7 +78,8 @@ public class ArmeeController implements Initializable{
     @FXML
     private Label general;
 
-    TreeItem<Humain> rootItem = new TreeItem<Humain>();
+    General premierHumain = new General("msg-root");
+    TreeItem<Humain> rootItem = new TreeItem<Humain>(premierHumain);
     TreeView<Humain> tree = new TreeView<Humain>(rootItem);
     int index = 0;
     int taille = -1;

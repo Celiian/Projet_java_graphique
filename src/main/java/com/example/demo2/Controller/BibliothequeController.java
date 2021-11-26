@@ -65,6 +65,18 @@ public class BibliothequeController implements Initializable {
     private ImageView img;
 
     @FXML
+    private ImageView imgbtnAjouter;
+
+    @FXML
+    private ImageView imgBtnSupp;
+
+    @FXML
+    private ImageView imgBtnValider;
+
+    @FXML
+    private ImageView imgBtnModif;
+
+    @FXML
     private Pane paneBoutons;
 
     @FXML
@@ -83,6 +95,34 @@ public class BibliothequeController implements Initializable {
     boolean modif = false;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        final String urlBtnAjouter = "https://cdn-icons-png.flaticon.com/512/60/60745.png";
+        final Image imgBoutonAjouter = new Image(urlBtnAjouter);
+        imgbtnAjouter.setImage(imgBoutonAjouter);
+        boutonAjouter.setGraphic(imgbtnAjouter);
+        boutonAjouter.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+        final String urlBtnSupp = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxwH8UTatN6YB9TO05F6mn1uB293XRl0B4Fw&usqp=CAU";
+        final Image imageBtnSupp = new Image(urlBtnSupp);
+        imgBtnSupp.setImage(imageBtnSupp);
+        boutonRetirer.setGraphic(imgBtnSupp);
+        boutonRetirer.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+        final String urlBtnValid = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bjywkSF8Mm-y30t0O5u5Puvn6vVhNjXapjt6B0eqKYt9vo94lEoMLcZdayzLJ_Haypc&usqp=CAU";
+        final Image imageBtnValdier = new Image(urlBtnValid);
+        imgBtnValider.setImage(imageBtnValdier);
+        boutonValider.setGraphic(imgBtnValider);
+        boutonValider.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+        final String urlBtnModif = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIcnFzEj5VainEnRAY2Y4P9UgZzfnx4aV7GHs-w7lSwiYSj6Rcc8t6NpTgFvYb4SH58dc&usqp=CAU";
+        final Image imageBtnModif = new Image(urlBtnModif);
+        imgBtnModif.setImage(imageBtnModif);
+        boutonModifier.setGraphic(imgBtnModif);
+        boutonModifier.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+
+
 
         //CREER DES COLONNES DANS LE TABLEAU QUI VONT PERMETTRE D'AFFICHER UN OBJET LIVRE FACILEMENT
         TableColumn auteurColonne = new TableColumn("auteur");

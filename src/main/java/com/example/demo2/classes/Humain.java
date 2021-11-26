@@ -50,4 +50,6 @@ public abstract class Humain {
     public void setNbSoldat(int nbSoldat) {
         this.nbSoldat = nbSoldat;
     }
+
+
 }

@@ -16,6 +16,9 @@ import java.util.ResourceBundle;
 public class ConversionsController implements Initializable {
 
     @FXML
+    private Label errorRom;
+
+    @FXML
     private TextField Romaintrad;
 
     @FXML
@@ -194,10 +197,51 @@ public class ConversionsController implements Initializable {
             int chiffreFinal = 0;
             try {
                 String romEntre = Romaintrad.getText();
-                if(romEntre.contains("VVVV")){
+                if(romEntre.contains("IIII")){
+                    Romaintrad.equals(romEntre);
+                    Romaintrad.onKeyTypedProperty().getValue();
+                    Romaintrad.setStyle("-fx-border-color: red;");
+                    errorRom.setText("Ce que vous essayez de traduire en nombre décimal ne peut pas être traduite du aux règles des chiffres romains");
+                }
+                else if (romEntre.contains("VVVV")) {
+                    Romaintrad.equals(romEntre);
+                    Romaintrad.onKeyTypedProperty().getValue();
+                    Romaintrad.setStyle("-fx-border-color: red;");
+                    errorRom.setText("Ce que vous essayez de traduire en nombre décimal ne peut pas être traduite du aux règles des chiffres romains");
+                }
+                else if (romEntre.contains("XXXX")) {
+                    Romaintrad.equals(romEntre);
+                    Romaintrad.onKeyTypedProperty().getValue();
+                    Romaintrad.setStyle("-fx-border-color: red;");
+                    errorRom.setText("Ce que vous essayez de traduire en nombre décimal ne peut pas être traduite du aux règles des chiffres romains");
+                }
+                else if (romEntre.contains("LLLL")) {
+                    Romaintrad.equals(romEntre);
+                    Romaintrad.onKeyTypedProperty().getValue();
+                    Romaintrad.setStyle("-fx-border-color: red;");
+                    errorRom.setText("Ce que vous essayez de traduire en nombre décimal ne peut pas être traduite du aux règles des chiffres romains");
+                }
+                else if (romEntre.contains("CCCC")) {
+                    Romaintrad.equals(romEntre);
+                    Romaintrad.onKeyTypedProperty().getValue();
+                    Romaintrad.setStyle("-fx-border-color: red;");
+                    errorRom.setText("Ce que vous essayez de traduire en nombre décimal ne peut pas être traduite du aux règles des chiffres romains");
+                }
+                else if (romEntre.contains("DDDD")) {
+                    Romaintrad.equals(romEntre);
+                    Romaintrad.onKeyTypedProperty().getValue();
+                    Romaintrad.setStyle("-fx-border-color: red;");
+                    errorRom.setText("Ce que vous essayez de traduire en nombre décimal ne peut pas être traduite du aux règles des chiffres romains");
+                }
+                else if (romEntre.contains("IVIV")) {
+                    Romaintrad.equals(romEntre);
+                    Romaintrad.onKeyTypedProperty().getValue();
+                    Romaintrad.setStyle("-fx-border-color: red;");
+                    errorRom.setText("Ce que vous essayez de traduire en nombre décimal ne peut pas être traduite du aux règles des chiffres romains");
+                }else {
+                    Romaintrad.setStyle("-fx-border-color: black;");
 
-                } else if (true) {
-                } else {
+                    errorRom.setText("");
                     chiffreFinal = 0;
                     int x = 0;
                     ArrayList list = new ArrayList();
@@ -772,6 +816,5 @@ public class ConversionsController implements Initializable {
             catch (Exception ignore){}
             binaireGlobal.setText(String.valueOf(str));
         });
-
     }
 }
