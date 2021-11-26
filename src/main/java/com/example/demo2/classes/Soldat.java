@@ -8,13 +8,8 @@ public class Soldat extends Humain {
         setGrade(grade);
     }
 
-
-
     @Override
     public String toString() {
-        return "Soldat{" +
-                "pv=" + getPv() +
-                ", grade='" + getGrade() + '\'' +
-                '}';
+        return "Soldat : " + getNom() + " -  pv : " + getPv();
     }
 }

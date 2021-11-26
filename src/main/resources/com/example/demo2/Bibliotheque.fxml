@@ -30,14 +30,15 @@
                            <children>
                               <Button fx:id="boutonAjouter" mnemonicParsing="false" text="Ajouter un livre">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="60.0" />
                                  </HBox.margin>
                               </Button>
                               <Button fx:id="boutonRetirer" mnemonicParsing="false" text="Retirer un livre">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                               </Button>
+                              <Label fx:id="errorRetirer" prefHeight="17.0" prefWidth="162.0" textFill="#5e0c0c" />
                            </children>
                         </HBox>
                      </children>
@@ -82,16 +83,25 @@
                               </HBox>
                               <HBox prefHeight="60.0" prefWidth="200.0">
                                  <children>
-                                    <Label prefWidth="80.0" text="Parution :">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </Label>
-                                    <TextField fx:id="champParution" prefWidth="140.0">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </TextField>
+                                    <VBox prefHeight="54.0" prefWidth="229.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label prefWidth="80.0" text="Parution :">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="champParution" prefWidth="140.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="errorParution" prefHeight="17.0" prefWidth="228.0" textFill="#721010" />
+                                       </children>
+                                    </VBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -99,16 +109,17 @@
                               </HBox>
                               <HBox prefHeight="60.0" prefWidth="200.0">
                                  <children>
-                                    <Label prefWidth="80.0" text="Colonne :">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </Label>
-                                    <TextField fx:id="champColonne" prefWidth="140.0">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </TextField>
+                                    <VBox prefHeight="54.0" prefWidth="229.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label prefWidth="80.0" text="Colonne :" />
+                                                <TextField fx:id="champColonne" prefWidth="140.0" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="errorColonne" prefHeight="17.0" prefWidth="225.0" textFill="#721010" />
+                                       </children>
+                                    </VBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -116,16 +127,25 @@
                               </HBox>
                               <HBox prefHeight="60.0" prefWidth="200.0">
                                  <children>
-                                    <Label prefWidth="80.0" text="Rangée :">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </Label>
-                                    <TextField fx:id="champRange" prefWidth="140.0">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </TextField>
+                                    <VBox prefHeight="54.0" prefWidth="231.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label prefWidth="80.0" text="Rangée :">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="champRange" prefWidth="140.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="errorRange" prefWidth="230.0" textFill="#721010" />
+                                       </children>
+                                    </VBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets />

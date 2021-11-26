@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="boxArmee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.Controller.ArmeeController">
    <children>
@@ -19,16 +20,44 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="529.0" prefWidth="413.0">
                      <children>
                         <VBox prefHeight="530.0" prefWidth="414.0" />
-                        <Pane fx:id="paneTree" maxHeight="515.0" maxWidth="400.0" prefHeight="515.0" prefWidth="400.0" />
+                        <Pane fx:id="paneTree" maxHeight="515.0" maxWidth="400.0" prefHeight="515.0" prefWidth="400.0">
+                           <children>
+                              <Label layoutX="286.0" layoutY="14.0" prefHeight="34.0" prefWidth="200.0" text="Armée">
+                                 <font>
+                                    <Font name="Academy Engraved LET Plain:1.0" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
                      </children>
                   </AnchorPane>
               </content>
             </ScrollPane>
             <VBox fx:id="boxFormArmee" prefHeight="530.0" prefWidth="250.0">
                <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="soldat" layoutX="74.0" layoutY="23.0" text="SOLDAT" textFill="#800606">
+                                 <font>
+                                    <Font name="Times New Roman" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="general" layoutX="74.0" layoutY="23.0" prefHeight="17.0" prefWidth="92.0" text="GENERAL" textFill="#800606">
+                                 <font>
+                                    <Font name="Times New Roman" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
                   <HBox fx:id="boxNom" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label maxWidth="130.0" prefWidth="100.0" text="Nom :" />
+                        <Label maxWidth="130.0" prefWidth="100.0" text="Nom :">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin></Label>
                         <TextField fx:id="nom" maxWidth="100.0" text=" ">
                            <HBox.margin>
                               <Insets right="30.0" />
@@ -40,7 +69,10 @@
                   </HBox>
                   <HBox fx:id="boxPv" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label maxWidth="130.0" prefWidth="100.0" text="Nombre de pv : " />
+                        <Label maxWidth="130.0" prefWidth="100.0" text="Nombre de pv : ">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin></Label>
                         <TextField fx:id="nbPv" maxWidth="100.0">
                            <HBox.margin>
                               <Insets right="30.0" />
@@ -52,7 +84,10 @@
                   </HBox>
                   <HBox fx:id="boxGrade" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label maxWidth="130.0" prefWidth="100.0" text="Grade : " />
+                        <Label maxWidth="130.0" prefWidth="100.0" text="Grade : ">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin></Label>
                         <TextField fx:id="grade" maxWidth="100.0">
                            <HBox.margin>
                               <Insets right="30.0" />
@@ -64,7 +99,10 @@
                   </HBox>
                   <HBox fx:id="boxNbSoldat" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Nombre de soldats :" />
+                        <Label text="Nombre de soldats :">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin></Label>
                         <Label fx:id="lblNbSoldat" />
                      </children>
                      <VBox.margin>

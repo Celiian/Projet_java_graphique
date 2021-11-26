@@ -72,6 +72,12 @@ public class ArmeeController implements Initializable{
     @FXML
     private Label lblNbSoldat;
 
+    @FXML
+    private Label soldat;
+
+    @FXML
+    private Label general;
+
     TreeItem<Humain> rootItem = new TreeItem<Humain>();
     TreeView<Humain> tree = new TreeView<Humain>(rootItem);
     int index = 0;
@@ -99,11 +105,13 @@ public class ArmeeController implements Initializable{
                 if (tree.getSelectionModel().isSelected(0)) {
                     boxFormArmee.setVisible(true);
                     boxFormArmee.getChildren().removeAll(boxPv, boxGrade, boxNom, boxNbSoldat, boxButton);
-                    boxFormArmee.getChildren().addAll(boxNom, boxNbSoldat, boxButton);
+                    boxFormArmee.getChildren().addAll(boxNom, boxButton);
                     validFormArmee.setVisible(true);
                     btnModif.setVisible(false);
                     btnSupp.setVisible(false);
                     isSoldat = false;
+                    general.setVisible(true);
+                    soldat.setVisible(false);
                 }
 
                 if (!tree.getSelectionModel().isSelected(0)) {
@@ -114,6 +122,8 @@ public class ArmeeController implements Initializable{
                     btnModif.setVisible(false);
                     btnSupp.setVisible(false);
                     isSoldat = true;
+                    general.setVisible(false);
+                    soldat.setVisible(true);
                 }
             }
             else if(buttonStr.equals("SECONDARY")){
@@ -128,6 +138,8 @@ public class ArmeeController implements Initializable{
                         btnModif.setVisible(true);
                         btnSupp.setVisible(true);
                         isSoldat = false;
+                        general.setVisible(true);
+                        soldat.setVisible(false);
                     } else {
                         boxFormArmee.setVisible(true);
                         boxFormArmee.getChildren().removeAll(boxNbSoldat, boxNom, boxPv, boxGrade, boxButton);
@@ -139,6 +151,8 @@ public class ArmeeController implements Initializable{
                         btnModif.setVisible(true);
                         btnSupp.setVisible(true);
                         isSoldat = true;
+                        general.setVisible(false);
+                        soldat.setVisible(true);
                     }
                 }
             }
@@ -190,7 +204,6 @@ public class ArmeeController implements Initializable{
             Humain item_modif = tree.getSelectionModel().getSelectedItem().getValue();
             TreeItem<Humain> ancien_item = tree.getSelectionModel().getSelectedItem();
             if(isSoldat) {
-
                 tree.getSelectionModel().getSelectedItem().getParent().getChildren().remove(ancien_item);
             }
             else {
@@ -225,7 +238,6 @@ public class ArmeeController implements Initializable{
                 else {
                     errorMsg.setText("Veuillez choisir un Géneral");
                 }
-
             }
             else {
                 General general = new General(nomSoldat);
@@ -234,9 +246,7 @@ public class ArmeeController implements Initializable{
                 rootItem.getChildren().add(humain);
                 taille ++;
                 general.setIndex(taille);
-                System.out.println(taille);
             }
-
             nbPv.setText("");
             nom.setText("");
             grade.setText("");

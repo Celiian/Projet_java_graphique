@@ -10,8 +10,6 @@ public class General extends Humain{
 
     @Override
     public String toString() {
-        return "General{" +
-                "nom=" + getNom() +
-                '}';
+        return "General : " + getNom();
     }
 }

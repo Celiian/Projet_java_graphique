@@ -17,6 +17,15 @@ import java.util.ResourceBundle;
 public class BibliothequeController implements Initializable {
 
     @FXML
+    private Label errorColonne;
+
+    @FXML
+    private Label errorParution;
+
+    @FXML
+    private Label errorRange;
+
+    @FXML
     private Button boutonValider;
 
     @FXML
@@ -49,11 +58,8 @@ public class BibliothequeController implements Initializable {
     @FXML
     private Button boutonModifier;
 
-
     @FXML
     private VBox boxForm;
-
-
 
     @FXML
     private ImageView img;
@@ -64,6 +70,9 @@ public class BibliothequeController implements Initializable {
     @FXML
     private TextField urlImg;
 
+    @FXML
+    private Label errorRetirer;
+
     boolean titreBon = false;
     boolean auteurBon = false;
     boolean parutionBon = false;
@@ -71,7 +80,7 @@ public class BibliothequeController implements Initializable {
     boolean rangeBon = false;
     boolean resumeBon = false;
     boolean imgurlBon = false;
-
+    boolean modif = false;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -112,7 +121,6 @@ public class BibliothequeController implements Initializable {
             int range = Integer.parseInt(champRange.getText());
             int colonne = Integer.parseInt(champColonne.getText());
             String resume = champResume.getText();
-            System.out.println(resume);
             String urlImage =  urlImg.getText();
             Livre livre = new Livre(titre, auteur, resume, colonne, range, parution, (tabLivre.getItems().size()+1), urlImage);
             tabLivre.getItems().add(livre);
@@ -125,6 +133,7 @@ public class BibliothequeController implements Initializable {
             champColonne.setText("");
             champTitre.setText("");
             champAuteur.setText("");
+            errorRetirer.setText("");
         });
 
         //AFFICHE LE FORMULAIRE DE MODIFICATION PREREMPLI ET LE BOUTON MODIFIER AFIN DE MODIFIER UN LIVRE
@@ -140,6 +149,7 @@ public class BibliothequeController implements Initializable {
                 champResume.setText(actualLivre.getResume());
                 boxForm.setVisible(true);
                 boutonModifier.setVisible(true);
+                modif = true;
             }
             catch (Exception e){
             }
@@ -196,6 +206,8 @@ public class BibliothequeController implements Initializable {
             champColonne.setText("");
             champTitre.setText("");
             champAuteur.setText("");
+            errorRetirer.setText("");
+            modif = false;
         });
 
         //PERMET DE RETIRER UN LIVRE DU TABLEAU PUIS DE REAFFECTER LES LIVRES AU BON EMPLACEMENT
@@ -203,19 +215,31 @@ public class BibliothequeController implements Initializable {
         //Utilise l'index de l'objet livre qui leur à été attribué a leur création et qui leur permet de bien se positionner
         //index modifiés si nécessaire
         boutonRetirer.setOnMouseClicked(action -> {
-            int index = tabLivre.getSelectionModel().getSelectedIndex();
-            Livre actualLivre = tabLivre.getItems().get(index);
-            tabLivre.getItems().remove(actualLivre);
+            try {
+                int index = tabLivre.getSelectionModel().getSelectedIndex();
+                Livre actualLivre = tabLivre.getItems().get(index);
+                tabLivre.getItems().remove(actualLivre);
 
-            ArrayList<Livre> list = new ArrayList<Livre>();
-            int newIndex = 0;
-            for (int i = 0; i < tabLivre.getItems().size(); i ++){
-                list.add(tabLivre.getItems().get(i));
-                tabLivre.getItems().get(i).setIndex(i);
+                ArrayList<Livre> list = new ArrayList<Livre>();
+                int newIndex = 0;
+                for (int i = 0; i < tabLivre.getItems().size(); i++) {
+                    list.add(tabLivre.getItems().get(i));
+                    tabLivre.getItems().get(i).setIndex(i);
+                }
+                tabLivre.getItems().clear();
+                for (int i = 0; i < list.size(); i++) {
+                    tabLivre.getItems().add(list.get(i));
+                }
+                champResume.setText("");
+                champRange.setText("");
+                champParution.setText("");
+                champColonne.setText("");
+                champTitre.setText("");
+                champAuteur.setText("");
+                errorRetirer.setText("");
             }
-            tabLivre.getItems().clear();
-            for (int i = 0; i < list.size(); i ++) {
-                tabLivre.getItems().add(list.get(i));
+            catch (Exception e){
+                errorRetirer.setText("Aucune ligne sélectionné");
             }
         });
 
@@ -237,10 +261,11 @@ public class BibliothequeController implements Initializable {
             champTitre.onKeyTypedProperty().getValue();
             champTitre.setStyle("-fx-border-color: green;");
             titreBon = true;
-            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
-                boutonValider.setVisible(true);
+            if (!modif) {
+                if (auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon) {
+                    boutonValider.setVisible(true);
+                }
             }
-
         });
 
         champAuteur.setOnKeyReleased((verif_bon->{
@@ -249,43 +274,63 @@ public class BibliothequeController implements Initializable {
             champAuteur.onKeyTypedProperty().getValue();
             champAuteur.setStyle("-fx-border-color: green;");
             auteurBon = true;
-            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
-                boutonValider.setVisible(true);
+            if (!modif) {
+                if (auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon) {
+                    boutonValider.setVisible(true);
+                }
             }
         }));
 
-        champParution.setOnKeyReleased(verif_bon->{
-            int parution = Integer.parseInt(champParution.getText());
-            champParution.equals(parution);
-            champParution.onKeyTypedProperty().getValue();
-            champParution.setStyle("-fx-border-color: green;");
-            parutionBon = true;
-            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
-                boutonValider.setVisible(true);
-            }
-        });
 
-        champRange.setOnKeyReleased(verif_bon->{
+        champRange.setOnKeyReleased(verif_condition->{
             int range = Integer.parseInt(champRange.getText());
-            champRange.equals(range);
-            champRange.onKeyTypedProperty().getValue();
-            champRange.setStyle("-fx-border-color: green;");
-            rangeBon = true;
-            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
-                boutonValider.setVisible(true);
+            if (range >= 1 && range <= 7){
+                champRange.setStyle("-fx-border-color: green;");
+                errorRange.setText("");
+                rangeBon = true;
+                if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                    boutonValider.setVisible(true);
+                }
+            }
+            if(champRange.getText().equals("")){
+                champRange.setStyle("-fx-border-color: black");
+                errorRange.setText("");
             }
         });
 
-        champColonne.setOnKeyReleased(verif_bon->{
+        champColonne.setOnKeyReleased(verif_condition->{
             int colonne = Integer.parseInt(champColonne.getText());
-            champColonne.equals(colonne);
-            champColonne.onKeyTypedProperty().getValue();
-            champColonne.setStyle("-fx-border-color: green;");
-            colonneBon = true;
-            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
-                boutonValider.setVisible(true);
+            if (colonne >= 1 && colonne <=5){
+                champColonne.setStyle("-fx-border-color: green;");
+                errorColonne.setText("");
+                colonneBon = true;
+                if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                    boutonValider.setVisible(true);
+                }
+            }
+            if(champColonne.getText().equals("")){
+                champColonne.setStyle("-fx-border-color: black");
+                errorColonne.setText("");
             }
         });
+
+        champParution.setOnKeyReleased(verif_condition->{
+            int parution = Integer.parseInt(champParution.getText());
+            if (parution >= 2009){
+                champParution.setStyle("-fx-border-color: green;");
+                errorParution.setText("");
+                parutionBon = true;
+                if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
+                    boutonValider.setVisible(true);
+                }
+            }
+            if(champParution.getText().equals("")){
+                champParution.setStyle("-fx-border-color: black");
+                errorParution.setText("");
+            }
+
+        });
+
 
         champResume.setOnKeyReleased(verif_bon->{
             String resume = champResume.getText();
@@ -293,9 +338,12 @@ public class BibliothequeController implements Initializable {
             champResume.onKeyTypedProperty().getValue();
             champResume.setStyle("-fx-border-color: green;");
             resumeBon = true;
-            if(auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon){
-                boutonValider.setVisible(true);
+            if (!modif) {
+                if (auteurBon && titreBon && colonneBon && rangeBon && parutionBon && resumeBon) {
+                    boutonValider.setVisible(true);
+                }
             }
+
         });
 
 
@@ -306,9 +354,14 @@ public class BibliothequeController implements Initializable {
             String range = champRange.getText();
             champRange.equals(range);
             champRange.setStyle("-fx-border-color: red;");
+            errorRange.setText("Veuillez entrer un entier entre 1 et 7");
             rangeBon = false;
             if(!rangeBon){
                 boutonValider.setVisible(false);
+            }
+            if(champRange.getText().equals("")){
+                champRange.setStyle("-fx-border-color: black");
+                errorRange.setText("");
             }
         });
 
@@ -316,9 +369,14 @@ public class BibliothequeController implements Initializable {
             String colonne = champColonne.getText();
             champColonne.equals(colonne);
             champColonne.setStyle("-fx-border-color: red;");
+            errorColonne.setText("Veuillez entrer un entier entre 1 et 5");
             colonneBon = false;
             if(!colonneBon){
                 boutonValider.setVisible(false);
+            }
+            if(champColonne.getText().equals("")){
+                champColonne.setStyle("-fx-border-color: black");
+                errorColonne.setText("");
             }
         });
 
@@ -326,9 +384,14 @@ public class BibliothequeController implements Initializable {
             String parution_string = champParution.getText();
             champParution.equals(parution_string);
             champParution.setStyle("-fx-border-color: red;");
+            errorParution.setText("Veuillez entrer une date valide (supérieure à 2009)");
             parutionBon = false;
             if(!parutionBon){
                 boutonValider.setVisible(false);
+            }
+            if(champParution.getText().equals("")){
+                champParution.setStyle("-fx-border-color: black");
+                errorParution.setText("");
             }
 
         });

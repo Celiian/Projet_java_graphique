@@ -64,7 +64,14 @@
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Preferences…" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
+            <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <Button fx:id="quit" maxHeight="50.0" maxWidth="50.0" mnemonicParsing="false" text="Quit">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Button>
+                     </graphic></MenuItem>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Edit">

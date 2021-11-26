@@ -1,13 +1,19 @@
 package com.example.demo2.Controller;
 
 
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.fxml.Initializable;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.InputEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class HomeController implements Initializable{
     @FXML
@@ -30,6 +36,9 @@ public class HomeController implements Initializable{
 
     @FXML
     private Button boutonConversions;
+
+    @FXML
+    private Button quit;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -54,6 +63,11 @@ public class HomeController implements Initializable{
         });
 
 
+        quit.setOnAction(action -> {
+            Platform.exit();
+
+        });
 
     }
+
 }

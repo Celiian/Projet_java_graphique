@@ -65,7 +65,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Poid :" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Poid :">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="poid" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -74,7 +78,11 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Taille :" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Taille :">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="taille" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -120,7 +128,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="chiffreRomainATrad" prefHeight="26.0" prefWidth="198.0">
                                              <HBox.margin>
                                                 <Insets right="15.0" />
@@ -182,7 +194,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="chiffreToHexa" prefHeight="26.0" prefWidth="198.0">
                                              <HBox.margin>
                                                 <Insets right="20.0" />
@@ -240,7 +256,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Chiffre">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="binaireATrad" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -253,7 +273,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Binaire" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Binaire">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="binaireTrad" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -294,7 +318,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Decimal" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Decimal">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="decimalGlobal" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -307,7 +335,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Binaire" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Binaire">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="binaireGlobal" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -327,7 +359,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Hexa" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Hexa">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="hexaGlobal" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -340,7 +376,11 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label maxWidth="150.0" prefWidth="150.0" text="Romain" />
+                                          <Label maxWidth="150.0" prefWidth="150.0" text="Romain">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Label>
                                           <TextField fx:id="romainGlobal" prefHeight="26.0" prefWidth="198.0" />
                                        </children>
                                        <padding>
@@ -352,6 +392,9 @@
                            </children>
                         </HBox>
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </VBox>
                </children>
             </VBox>
